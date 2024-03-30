@@ -16,6 +16,7 @@
     "dev:corvu": "turbo run dev --filter=@corvu/dev --filter=corvu",
     "dev:web": "turbo run dev --filter=@corvu/web",
     "lint": "turbo run lint",
+    "test": "turbo run test",
     "preview:web": "turbo run preview --filter=@corvu/web",
     "ci:version": "pnpm changeset version",
     "ci:publish": "pnpm build && pnpm publish -r && pnpm changeset tag"
@@ -23,7 +24,11 @@
   "devDependencies": {
     "@changesets/changelog-github": "^0.5.0",
     "@changesets/cli": "^2.27.1",
-    "turbo": "^1.12.4"
+    "@solidjs/testing-library": "^0.8.7",
+    "jsdom": "^24.0.0",
+    "turbo": "^1.12.4",
+    "vite-plugin-solid": "^2.10.2",
+    "vitest": "^1.4.0"
   },
   "pnpm": {
     "patchedDependencies": {

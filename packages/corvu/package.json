@@ -72,6 +72,7 @@
     "clean": "rm -rf .turbo dist node_modules api.json",
     "dev": "tsup --watch",
     "lint": "eslint --max-warnings=0 .",
+    "test": "vitest run -c ../../configs/vitest.config.ts",
     "typedoc": "typedoc --json api.json --entryPoints ./src/index.ts --entryPoints ./src/primitives/*/index.ts"
   },
   "dependencies": {

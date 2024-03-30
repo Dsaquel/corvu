@@ -1,7 +1,9 @@
 import Popover from 'corvu/popover'
-import { type VoidComponent } from 'solid-js'
+import { createSignal, type VoidComponent } from 'solid-js'
 
 const PopoverExample: VoidComponent = () => {
+  const [smt, setSmt] = createSignal()
+
   return (
     <div class="@xl:max-w-[400px] relative my-auto w-full max-w-[250px] overflow-hidden rounded-lg">
       <Popover.Root
@@ -11,11 +13,11 @@ const PopoverExample: VoidComponent = () => {
           shift: true,
         }}
       >
-        <Popover.Trigger class="ml-[200px] rounded-full bg-corvu-200 p-2">
+        <Popover.Trigger class="bg-corvu-200 ml-[200px] rounded-full p-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 256 256"
-            class="size-5 text-corvu-dark"
+            class="text-corvu-dark size-5"
           >
             <rect width="256" height="256" fill="none" />
             <line
@@ -87,11 +89,10 @@ const PopoverExample: VoidComponent = () => {
           </svg>
         </Popover.Trigger>
         <Popover.Portal>
-          <Popover.Content class="rounded-md bg-corvu-1000 p-4 text-white corvu-open:animate-in corvu-open:fade-in-50 corvu-open:slide-in-from-top-2 corvu-closed:animate-out corvu-closed:fade-out-50 corvu-closed:slide-out-to-top-2">
+          <Popover.Content class="bg-corvu-1000 corvu-open:animate-in corvu-open:fade-in-50 corvu-open:slide-in-from-top-2 corvu-closed:animate-out corvu-closed:fade-out-50 corvu-closed:slide-out-to-top-2 rounded-md p-4 text-white">
             <Popover.Arrow class="text-corvu-1000" />
             <div class="flex space-x-2">
-              <p>Size</p>
-              <input />
+              <input class="p-2 text-black" />
             </div>
           </Popover.Content>
         </Popover.Portal>

@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    // Allows TS to see the Vitest globals
+    "types": ["vitest/globals"],
+    "paths": {
+      "corvu": ["./packages/corvu"]
+    }
+  },
+  "exclude": ["node_modules"]
+}
