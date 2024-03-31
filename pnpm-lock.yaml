@@ -22,9 +22,9 @@ importers:
       '@changesets/cli':
         specifier: ^2.27.1
         version: 2.27.1(patch_hash=3m4f6pk5xlfiux2nef4wiaxizu)
-      '@solidjs/testing-library':
-        specifier: ^0.8.7
-        version: 0.8.7(solid-js@1.8.15)
+      '@testing-library/jest-dom':
+        specifier: ^6.2.0
+        version: 6.4.2(vitest@1.4.0)
       jsdom:
         specifier: ^24.0.0
         version: 24.0.0
@@ -33,7 +33,10 @@ importers:
         version: 1.12.4
       vite-plugin-solid:
         specifier: ^2.10.2
-        version: 2.10.2(solid-js@1.8.15)(vite@5.1.4)
+        version: 2.10.2(@testing-library/jest-dom@6.4.2)(solid-js@1.8.15)(vite@5.1.4)
+      vite-tsconfig-paths:
+        specifier: ^4.3.2
+        version: 4.3.2(vite@5.1.4)
       vitest:
         specifier: ^1.4.0
         version: 1.4.0(jsdom@24.0.0)
@@ -85,7 +88,7 @@ importers:
         version: 5.1.4
       vite-plugin-solid:
         specifier: ^2.10.1
-        version: 2.10.1(solid-js@1.8.15)(vite@5.1.4)
+        version: 2.10.1(@testing-library/jest-dom@6.4.2)(solid-js@1.8.15)(vite@5.1.4)
       vite-tsconfig-paths:
         specifier: ^4.3.1
         version: 4.3.1(typescript@5.3.3)(vite@5.1.4)
@@ -114,6 +117,9 @@ importers:
         specifier: workspace:~0.1
         version: link:../solid-transition-size
     devDependencies:
+      '@solidjs/testing-library':
+        specifier: ^0.8.7
+        version: 0.8.7(solid-js@1.8.15)
       '@typescript-eslint/eslint-plugin':
         specifier: ^7.1.0
         version: 7.1.0(@typescript-eslint/parser@7.1.0)(eslint@8.57.0)(typescript@5.3.3)
@@ -363,7 +369,7 @@ importers:
         version: 3.1.1
       '@astrojs/solid-js':
         specifier: ^4.0.1
-        version: 4.0.1(solid-js@1.8.15)(vite@5.1.4)
+        version: 4.0.1(@testing-library/jest-dom@6.4.2)(solid-js@1.8.15)(vite@5.1.4)
       '@astrojs/tailwind':
         specifier: ^5.1.0
         version: 5.1.0(astro@4.4.6)(tailwindcss@3.4.1)
@@ -445,6 +451,10 @@ packages:
   /@aashutoshrathi/word-wrap@1.2.6:
     resolution: {integrity: sha512-1Yjs2SvM8TflER/OD3cOjhWWOZb58A2t7wpE2S9XfBYTiIl+XFhQG2bjy4Pu1I+EAlCNUzRDYDdFwFYUKvXcIA==}
     engines: {node: '>=0.10.0'}
+    dev: true
+
+  /@adobe/css-tools@4.3.3:
+    resolution: {integrity: sha512-rE0Pygv0sEZ4vBWHlAgJLGDU7Pm8xoO6p3wsEceb7GYAjScrOHpEo8KK/eVkAcnSM+slAEtXjA2JpdjLp4fJQQ==}
     dev: true
 
   /@alloc/quick-lru@5.2.0:
@@ -584,14 +594,14 @@ packages:
       zod: 3.22.4
     dev: true
 
-  /@astrojs/solid-js@4.0.1(solid-js@1.8.15)(vite@5.1.4):
+  /@astrojs/solid-js@4.0.1(@testing-library/jest-dom@6.4.2)(solid-js@1.8.15)(vite@5.1.4):
     resolution: {integrity: sha512-XjViecwQDEO/e3OWCCORPYtYLS7MUNWvAWGVvNkzhAyVYZbM2fzckp94WkhX/qPu1rPUyNxSMXnN6IXkiVRTwA==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
       solid-js: ^1.8.5
     dependencies:
       solid-js: 1.8.15
-      vite-plugin-solid: 2.10.2(solid-js@1.8.15)(vite@5.1.4)
+      vite-plugin-solid: 2.10.2(@testing-library/jest-dom@6.4.2)(solid-js@1.8.15)(vite@5.1.4)
     transitivePeerDependencies:
       - '@testing-library/jest-dom'
       - supports-color
@@ -2220,6 +2230,38 @@ packages:
       pretty-format: 27.5.1
     dev: true
 
+  /@testing-library/jest-dom@6.4.2(vitest@1.4.0):
+    resolution: {integrity: sha512-CzqH0AFymEMG48CpzXFriYYkOjk6ZGPCLMhW9e9jg3KMCn5OfJecF8GtGW7yGfR/IgCe3SX8BSwjdzI6BBbZLw==}
+    engines: {node: '>=14', npm: '>=6', yarn: '>=1'}
+    peerDependencies:
+      '@jest/globals': '>= 28'
+      '@types/bun': latest
+      '@types/jest': '>= 28'
+      jest: '>= 28'
+      vitest: '>= 0.32'
+    peerDependenciesMeta:
+      '@jest/globals':
+        optional: true
+      '@types/bun':
+        optional: true
+      '@types/jest':
+        optional: true
+      jest:
+        optional: true
+      vitest:
+        optional: true
+    dependencies:
+      '@adobe/css-tools': 4.3.3
+      '@babel/runtime': 7.24.0
+      aria-query: 5.3.0
+      chalk: 3.0.0
+      css.escape: 1.5.1
+      dom-accessibility-api: 0.6.3
+      lodash: 4.17.21
+      redent: 3.0.0
+      vitest: 1.4.0(jsdom@24.0.0)
+    dev: true
+
   /@types/acorn@4.0.6:
     resolution: {integrity: sha512-veQTnWP+1D/xbxVrPC3zHnCZRjSrKfhbMUlEA43iMZLu7EsnTtkJklIuwrCPbOi8YkvDQAiW05VQQFvvz9oieQ==}
     dependencies:
@@ -3258,6 +3300,14 @@ packages:
       supports-color: 5.5.0
     dev: true
 
+  /chalk@3.0.0:
+    resolution: {integrity: sha512-4D3B6Wf41KOYRFdszmDqMCGq5VV/uMAB273JILmO+3jAlh8X4qDtdtgCR3fxtbLEMzSx22QdhnDcJvu2u1fVwg==}
+    engines: {node: '>=8'}
+    dependencies:
+      ansi-styles: 4.3.0
+      supports-color: 7.2.0
+    dev: true
+
   /chalk@4.1.2:
     resolution: {integrity: sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==}
     engines: {node: '>=10'}
@@ -3459,6 +3509,10 @@ packages:
       path-key: 3.1.1
       shebang-command: 2.0.0
       which: 2.0.2
+    dev: true
+
+  /css.escape@1.5.1:
+    resolution: {integrity: sha512-YUifsXXuknHlUsmlgyY0PKzgPOr7/FjCePfHNt0jxm83wHZi44VDMQ7/fGNkjY3/jV1MC+1CmZbaHzugyeRtpg==}
     dev: true
 
   /cssesc@3.0.0:
@@ -3692,6 +3746,10 @@ packages:
 
   /dom-accessibility-api@0.5.16:
     resolution: {integrity: sha512-X7BJ2yElsnOJ30pZF4uIIDfBEVgF4XEBxL9Bxhy6dnrm5hkzqmsWHGTiHqRiITNhMyFLyAiWndIJP7Z1NTteDg==}
+    dev: true
+
+  /dom-accessibility-api@0.6.3:
+    resolution: {integrity: sha512-7ZgogeTnjuHbo+ct10G9Ffp0mif17idi0IyWNVA/wcwcm7NPOD/WEHVP3n7n3MhXqxoIYm8d6MuZohYWIZ4T3w==}
     dev: true
 
   /dotenv@8.6.0:
@@ -5427,6 +5485,10 @@ packages:
 
   /lodash.startcase@4.4.0:
     resolution: {integrity: sha512-+WKqsK294HMSc2jEbNgpHpd0JfIBhp7rEV4aqXWqFr6AlXov+SlcgB1Fv01y2kGe3Gc8nMW7VA0SrGuSkRfIEg==}
+    dev: true
+
+  /lodash@4.17.21:
+    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
     dev: true
 
   /log-symbols@5.1.0:
@@ -7954,6 +8016,17 @@ packages:
       typescript: 5.3.3
     dev: true
 
+  /tsconfck@3.0.3:
+    resolution: {integrity: sha512-4t0noZX9t6GcPTfBAbIbbIU4pfpCwh0ueq3S4O/5qXI1VwK1outmxhe9dOiEWqMz3MW2LKgDTpqWV+37IWuVbA==}
+    engines: {node: ^18 || >=20}
+    hasBin: true
+    peerDependencies:
+      typescript: ^5.0.0
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dev: true
+
   /tslib@2.6.2:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
     dev: true
@@ -8426,7 +8499,7 @@ packages:
       - terser
     dev: true
 
-  /vite-plugin-solid@2.10.1(solid-js@1.8.15)(vite@5.1.4):
+  /vite-plugin-solid@2.10.1(@testing-library/jest-dom@6.4.2)(solid-js@1.8.15)(vite@5.1.4):
     resolution: {integrity: sha512-kfVdNLWaJqaJVL52U6iCCKNW/nXE7bS1VVGOWPGllOkJfcNILymVSY0LCBLSnyy0iYnRtrXpiHm14rMuzeC7CA==}
     peerDependencies:
       '@testing-library/jest-dom': ^5.16.6 || ^5.17.0 || ^6.*
@@ -8437,6 +8510,7 @@ packages:
         optional: true
     dependencies:
       '@babel/core': 7.24.0
+      '@testing-library/jest-dom': 6.4.2(vitest@1.4.0)
       '@types/babel__core': 7.20.5
       babel-preset-solid: 1.8.15(@babel/core@7.24.0)
       merge-anything: 5.1.7
@@ -8448,7 +8522,7 @@ packages:
       - supports-color
     dev: true
 
-  /vite-plugin-solid@2.10.2(solid-js@1.8.15)(vite@5.1.4):
+  /vite-plugin-solid@2.10.2(@testing-library/jest-dom@6.4.2)(solid-js@1.8.15)(vite@5.1.4):
     resolution: {integrity: sha512-AOEtwMe2baBSXMXdo+BUwECC8IFHcKS6WQV/1NEd+Q7vHPap5fmIhLcAzr+DUJ04/KHx/1UBU0l1/GWP+rMAPQ==}
     peerDependencies:
       '@testing-library/jest-dom': ^5.16.6 || ^5.17.0 || ^6.*
@@ -8459,6 +8533,7 @@ packages:
         optional: true
     dependencies:
       '@babel/core': 7.24.0
+      '@testing-library/jest-dom': 6.4.2(vitest@1.4.0)
       '@types/babel__core': 7.20.5
       babel-preset-solid: 1.8.15(@babel/core@7.24.0)
       merge-anything: 5.1.7
@@ -8481,6 +8556,23 @@ packages:
       debug: 4.3.4
       globrex: 0.1.2
       tsconfck: 3.0.2(typescript@5.3.3)
+      vite: 5.1.4
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
+    dev: true
+
+  /vite-tsconfig-paths@4.3.2(vite@5.1.4):
+    resolution: {integrity: sha512-0Vd/a6po6Q+86rPlntHye7F31zA2URZMbH8M3saAZ/xR9QoGN/L21bxEGfXdWmFdNkqPpRdxFT7nmNe12e9/uA==}
+    peerDependencies:
+      vite: '*'
+    peerDependenciesMeta:
+      vite:
+        optional: true
+    dependencies:
+      debug: 4.3.4
+      globrex: 0.1.2
+      tsconfck: 3.0.3
       vite: 5.1.4
     transitivePeerDependencies:
       - supports-color
